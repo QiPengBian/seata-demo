@@ -19,13 +19,13 @@ public class BusinessTransactionController {
     @GetMapping(value = "create/order/{userId}")
     public String createOrder(@PathVariable Long userId) {
         TbOrder tbOrder = new TbOrder();
-        tbOrder.setOrderId(1L);
+        tbOrder.setOrderId(userId);
         tbOrder.setUserId(userId);
 
         TbOrderItem tbOrderItem = new TbOrderItem();
-        tbOrderItem.setOrderId(1L);
-        tbOrderItem.setOrderItemId(1L);
-        tbOrderItem.setUserId(1L);
+        tbOrderItem.setOrderId(userId);
+        tbOrderItem.setOrderItemId(userId);
+        tbOrderItem.setUserId(userId);
 
         providerTransactionService.createOrder(tbOrder, tbOrderItem);
         return "ok";

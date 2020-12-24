@@ -24,7 +24,7 @@ public class ProviderTransactionServiceImpl implements ProviderTransactionServic
         tbOrderService.insert(tbOrder);
         tbOrderItemService.insert(tbOrderItem);
 
-        if (tbOrder.getUserId().equals(2L)) {
+        if (tbOrder.getUserId() % 3 == 0) {
             throw new RuntimeException("Exception for seata.");
         }
     }
